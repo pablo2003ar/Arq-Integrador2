@@ -5,9 +5,9 @@
 
     <persistence-unit name="Integrador2">
 
-        <class>com.tudai.Estudiante</class>
-        <class>com.tudai.Carrera</class>
-        <class>com.tudai.Inscripciones</class>
+        <class>Entities.Estudiante</class>
+        <class>Entities.Carrera</class>
+        <class>Entities.Inscripciones</class>
 
         <properties>
             <!--            propiedades de la configuracion de JDBC para MSQL-->

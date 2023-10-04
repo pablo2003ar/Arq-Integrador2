@@ -1,14 +1,14 @@
-package com.tudai;
+package Entities;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 @Entity
 public class Inscripciones {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Estudiante dni;
+    private Estudiante nroLibreta;
     @ManyToOne(fetch = FetchType.LAZY)
     private Carrera id_carrera;
     @Column
@@ -20,11 +20,12 @@ public class Inscripciones {
 
     public Inscripciones(){}
 
-    public Inscripciones(Estudiante dni, Carrera id_carrera, boolean graduado, Timestamp fechaInscripcion) {
-        this.dni = dni;
+    public Inscripciones(Estudiante nroLibreta, Carrera id_carrera, boolean graduado, Timestamp fechaInscripcion, int antiguedad) {
+        this.nroLibreta = nroLibreta;
         this.id_carrera = id_carrera;
         this.graduado = graduado;
         this.fechaInscripcion = fechaInscripcion;
+        this.antiguedad = antiguedad;
     }
 
     public int getId() {
@@ -32,11 +33,11 @@ public class Inscripciones {
     }
 
     public Estudiante getDni() {
-        return dni;
+        return nroLibreta;
     }
 
-    public void setDni(Estudiante dni) {
-        this.dni = dni;
+    public Estudiante getNroLibreta() {
+        return nroLibreta;
     }
 
     public Carrera getId_carrera() {
@@ -75,7 +76,7 @@ public class Inscripciones {
     public String toString() {
         return "Inscripciones{" +
                 "id=" + id +
-                ", dni=" + dni +
+                ", Libreta=" + nroLibreta +
                 ", id_carrera=" + id_carrera +
                 ", graduado=" + graduado +
                 ", fechaInscripcion=" + fechaInscripcion +
